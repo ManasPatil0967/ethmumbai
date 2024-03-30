@@ -2,8 +2,31 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { LogInWithAnonAadhaar, useAnonAadhaar, useProver } from "@anon-aadhaar/react";
 import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
+/* eslint-disable @typescript-eslint/no-unused-vars */
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
@@ -65,14 +88,14 @@ export default function Component() {
       {/* Left Section */}
       <div className="space-y-6">
         <div className="space-y-2">
-          <h1 className="text-3xl font-bold text-center md:text-left">Vendor Registration</h1>
-          <p className="text-lg text-gray-800 dark:text-gray-700 font-bold text-center md:text-left">
+          <h1 className="text-3xl font-bold text-center md:text-left">Merchant Registration</h1>
+          <p className="text-lg text-gray-800 dark:text-white font-bold text-center md:text-left">
             Request to join a Sector, Get approved, Receive seamless payments.
           </p>
         </div>
         <div className="space-y-4">
           <div className="space-y-2">
-            <label htmlFor="company-name" className="text-gray-700 font-semibold">
+            <label htmlFor="company-name" className="text-gray-700 dark:text-white font-semibold">
               Company Name
             </label>
             <input
@@ -84,7 +107,7 @@ export default function Component() {
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="sec-id" className="text-gray-700 font-semibold">
+            <label htmlFor="sec-id" className="text-gray-700 dark:text-white font-semibold">
               Sectorial ID
             </label>
             <input
@@ -96,7 +119,7 @@ export default function Component() {
             />
           </div>
           <div className="space-y-2">
-            <label htmlFor="proof-identity" className="text-gray-700 font-semibold">
+            <label htmlFor="proof-identity" className="text-gray-700 dark:text-white font-semibold">
               Proof of Identity
             </label>
             <LogInWithAnonAadhaar nullifierSeed={1234567890} />
@@ -111,11 +134,11 @@ export default function Component() {
       </div>
       {/* Right Section */}
       <div className="flex items-center justify-center">
-        <img
+        <Image
           alt="Company registration"
           className="rounded-lg object-cover"
           height="300"
-          src="cf1.png"
+          src="/cf1.png"
           style={{
             aspectRatio: "400/300",
             objectFit: "cover",
