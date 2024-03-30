@@ -1,0 +1,79 @@
+/* Table.css */
+.table-container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+  }
+  
+  .table-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #3498db;
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: uppercase;
+  }
+  
+  .filter-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .filter-buttons {
+    display: flex;
+    align-items: center;
+  }
+  
+  .filter-buttons .btn {
+    margin-left: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .filter-buttons .btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .table-container input {
+    width: 200px;
+    padding: 8px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid #3498db;
+  }
+  
+  .table th,
+  .table td {
+    border: 1px solid #3498db;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .table tbody tr:hover {
+    background-color: #e1e1e1;
+  }
+  

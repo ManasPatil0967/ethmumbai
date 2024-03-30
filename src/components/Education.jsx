@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import "../styles/Education.css";
+import Graph from './Graph';
+import Table from './Table';
 
 const Education = () => {
   // State variables to manage numbers
@@ -32,12 +34,27 @@ const Education = () => {
       </div>
       <div className="cars">
         {/* Cards displaying numbers */}
-        <div className="car">Total vendors: {totalVendors}</div>
-        <div className="car">Pending requests: {pendingRequests}</div>
-        <div className="car">Inflow: Rs {inflow} <span className="green">▲</span></div>
-        <div className="car">Expiry: Rs {expiry} <span className="red">▼</span></div>
+        <div className="car">
+        <div>Total vendors</div>
+        <span>{totalVendors}</span>
+        </div>
+        <div className="car">
+        <div>Pending requests</div>
+        <span>{pendingRequests}</span>
+       </div>
+        <div className="car" id="inflow">
+       <div>Inflow: </div>
+       <span className="green">Rs {inflow}▲</span>
+        </div>
+        <div className="car" id="expired">
+       <div>Expired: </div>
+       <span className="red">Rs {expiry}▼</span>
+      </div>
+
       </div>
     </div>
+    <Graph/>
+    <Table/>
     </>
   );
 };
