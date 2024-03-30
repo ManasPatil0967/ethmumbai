@@ -21,20 +21,20 @@ const deployYourContract: DeployFunction = async function (hre: HardhatRuntimeEn
     console.log("MyToken deployed to:", myToken.address);
   }
 
-  // Check if the deployment script is tagged with "CombinedTokenUserLogin"
-  if (deployYourContract.tags?.includes("CombinedTokenUserLogin")) {
-    // Deploy the CombinedTokenUserLogin.sol
-    await deploy("CombinedTokenUserLogin", {
+  // Check if the deployment script is tagged with "CivicFLow"
+  if (deployYourContract.tags?.includes("CivicFLow")) {
+    // Deploy the CivicFLow.sol
+    await deploy("CivicFLow", {
       from: deployer,
-      // Add constructor arguments for CombinedTokenUserLogin.sol if any
+      // Add constructor arguments for CivicFLow.sol if any
       args: [deployer, deployer], // Replace with actual constructor arguments if needed
       log: true,
       autoMine: true,
     });
 
-    // Get the deployed CombinedTokenUserLogin.sol to interact with it after deploying.
-    const CombinedTokenUserLogin = await hre.ethers.getContract<Contract>("CombinedTokenUserLogin", deployer);
-    console.log("CombinedTokenUserLogin deployed to:", CombinedTokenUserLogin.address);
+    // Get the deployed CivicFLow.sol to interact with it after deploying.
+    const CivicFLow = await hre.ethers.getContract<Contract>("CivicFLow", deployer);
+    console.log("CivicFLow deployed to:", CivicFLow.address);
   }
 };
 
@@ -42,4 +42,4 @@ export default deployYourContract;
 
 // Tags are useful if you have multiple deploy files and only want to run one of them.
 // e.g. yarn deploy --tags YourContract
-deployYourContract.tags = ["YourContract", "CombinedTokenUserLogin"];
+deployYourContract.tags = ["YourContract", "CivicFLow"];

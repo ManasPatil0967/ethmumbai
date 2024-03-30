@@ -6,8 +6,8 @@ import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
   31337: {
-    CombinedTokenUserLogin: {
-      address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+    CivicFLow: {
+      address: "0x5FC8d32690cc91D4c39d9d3abcBD16989F875707",
       abi: [
         {
           inputs: [
@@ -64,6 +64,25 @@ const deployedContracts = {
             },
           ],
           name: "Approval",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "departmentAddress",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+          ],
+          name: "DepartmentRegistered",
           type: "event",
         },
         {
@@ -269,6 +288,19 @@ const deployedContracts = {
         },
         {
           inputs: [],
+          name: "DEPARTMENT_ROLE",
+          outputs: [
+            {
+              internalType: "bytes32",
+              name: "",
+              type: "bytes32",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
           name: "DOMAIN_SEPARATOR",
           outputs: [
             {
@@ -436,6 +468,30 @@ const deployedContracts = {
           type: "function",
         },
         {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          name: "departments",
+          outputs: [
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "address",
+              name: "walletAddress",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
           inputs: [],
           name: "eip712Domain",
           outputs: [
@@ -492,6 +548,65 @@ const deployedContracts = {
               internalType: "bytes32",
               name: "",
               type: "bytes32",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "getSchemeAmounts",
+          outputs: [
+            {
+              internalType: "string[]",
+              name: "schemeNames",
+              type: "string[]",
+            },
+            {
+              internalType: "uint256[]",
+              name: "schemeAmounts",
+              type: "uint256[]",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "userAddress",
+              type: "address",
+            },
+          ],
+          name: "getSchemes",
+          outputs: [
+            {
+              components: [
+                {
+                  internalType: "string",
+                  name: "name",
+                  type: "string",
+                },
+                {
+                  internalType: "uint256",
+                  name: "amount",
+                  type: "uint256",
+                },
+                {
+                  internalType: "uint256",
+                  name: "validity_time",
+                  type: "uint256",
+                },
+                {
+                  internalType: "string",
+                  name: "identifier",
+                  type: "string",
+                },
+              ],
+              internalType: "struct CivicFLow.Scheme[]",
+              name: "",
+              type: "tuple[]",
             },
           ],
           stateMutability: "view",
@@ -585,17 +700,27 @@ const deployedContracts = {
         {
           inputs: [
             {
-              internalType: "address",
-              name: "userAddress",
-              type: "address",
+              internalType: "string",
+              name: "schemeName",
+              type: "string",
             },
             {
               internalType: "uint256",
               name: "amount",
               type: "uint256",
             },
+            {
+              internalType: "uint256",
+              name: "validity_time",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "identifier",
+              type: "string",
+            },
           ],
-          name: "issueTokensToUser",
+          name: "makeScheme",
           outputs: [],
           stateMutability: "nonpayable",
           type: "function",
@@ -622,7 +747,7 @@ const deployedContracts = {
             },
             {
               internalType: "string",
-              name: "aadharQRCode",
+              name: "verifier",
               type: "string",
             },
             {
@@ -688,6 +813,24 @@ const deployedContracts = {
           inputs: [
             {
               internalType: "address",
+              name: "merchantAddress",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+          ],
+          name: "payMerchant",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
               name: "owner",
               type: "address",
             },
@@ -734,9 +877,22 @@ const deployedContracts = {
               name: "name",
               type: "string",
             },
+          ],
+          name: "registerDepartment",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [
             {
               internalType: "string",
-              name: "aadharQRCode",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "string",
+              name: "verifier",
               type: "string",
             },
             {
@@ -761,6 +917,11 @@ const deployedContracts = {
               internalType: "string",
               name: "aadharQRCode",
               type: "string",
+            },
+            {
+              internalType: "string[]",
+              name: "ids",
+              type: "string[]",
             },
           ],
           name: "registerUser",
@@ -905,6 +1066,77 @@ const deployedContracts = {
         {
           inputs: [
             {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "userAddresses",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "userCount",
+          outputs: [
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+            {
+              internalType: "uint256",
+              name: "",
+              type: "uint256",
+            },
+          ],
+          name: "userSchemes",
+          outputs: [
+            {
+              internalType: "string",
+              name: "name",
+              type: "string",
+            },
+            {
+              internalType: "uint256",
+              name: "amount",
+              type: "uint256",
+            },
+            {
+              internalType: "uint256",
+              name: "validity_time",
+              type: "uint256",
+            },
+            {
+              internalType: "string",
+              name: "identifier",
+              type: "string",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [
+            {
               internalType: "address",
               name: "",
               type: "address",
@@ -940,7 +1172,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     MyToken: {
-      address: "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9",
+      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
       abi: [
         {
           inputs: [
