@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { ethers } from "ethers";
 import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
+import img from "../../public/cf1.png";
 
 const PayMerchant = () => {
   const [merchantAddress, setMerchantAddress] = useState("");
@@ -82,7 +83,7 @@ const PayMerchant = () => {
           alt="Pay Merchant"
           className="rounded-lg object-cover"
           height="300"
-          src="/pay-merchant.png"
+          src={img}
           style={{
             aspectRatio: "400/300",
             objectFit: "cover",

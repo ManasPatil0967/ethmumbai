@@ -6,6 +6,8 @@ import Link from "next/link";
 // import Image from "next/image";
 import type { NextPage } from "next";
 import Image from "next/image";
+import img from "../public/cf1.png";
+import img2 from "../public/cbdc.png";
 
 // import { useAccount } from "wagmi";
 // import { BugAntIcon0, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
@@ -31,7 +33,7 @@ const Home: NextPage = () => {
               alt="Image"
               className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
               height="310"
-              src="https://iili.io/JjZxtat.jpg"
+              src={img}
               width="550"
             />
           </div>
@@ -49,7 +51,7 @@ const Home: NextPage = () => {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <div className="flex flex-col items-center gap-2">
               <DatabaseIcon className="w-12 h-12 rounded-full bg-gray-100 p-3 dark:bg-gray-800" />
-              <h3 className="text-xl font-bold">Financial Inclusion</h3>
+              <h3 className="text-xl font-bold dark:text-black">Financial Inclusion</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">
                 CBDCs can provide unbanked and underbanked populations with access to secure and affordable financial
                 services.
@@ -90,7 +92,7 @@ const Home: NextPage = () => {
                 alt="Image"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
                 height="310"
-                src="https://iili.io/JjZ58ib.jpg"
+                src={img2}
                 width="550"
               />
             </div>
@@ -106,15 +108,9 @@ const Home: NextPage = () => {
           <div className="flex flex-col gap-4 min-[400px]:flex-row">
             <Link
               className="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
-              href="#"
+              href="https://github.com/ManasPatil0967/ethmumbai"
             >
               Read the Whitepaper
-            </Link>
-            <Link
-              className="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-8 text-sm font-medium shadow-sm transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
-              href="#"
-            >
-              Explore CBDCs
             </Link>
           </div>
         </div>

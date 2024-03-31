@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
+import img from "../../../public/cf1.png";
 
 const RegisterDepartment = () => {
   const [departmentName, setDepartmentName] = useState("");
@@ -56,7 +57,7 @@ const RegisterDepartment = () => {
           alt="Register Department"
           className="rounded-lg object-cover"
           height="300"
-          src="/register-department.png"
+          src={img}
           style={{
             aspectRatio: "400/300",
             objectFit: "cover",
