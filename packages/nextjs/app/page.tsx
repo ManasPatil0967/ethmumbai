@@ -1,8 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 // import { useState } from "react";
 import Link from "next/link";
+// import Image from "next/image";
 import type { NextPage } from "next";
+import Image from "next/image";
 
 // import { useAccount } from "wagmi";
 // import { BugAntIcon0, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
@@ -24,7 +27,7 @@ const Home: NextPage = () => {
                 Advancing financial inclusion, innovation, and security with Central Bank Digital Currencies
               </p>
             </div>
-            <img
+            <Image
               alt="Image"
               className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
               height="310"
@@ -83,7 +86,7 @@ const Home: NextPage = () => {
               </p>
             </div>
             <div className="flex items-center">
-              <img
+              <Image
                 alt="Image"
                 className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
                 height="310"
