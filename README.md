@@ -1,7 +1,7 @@
 # CivicFlow
 
 <h4 align="center">
-  <a href="https://scaffoldeth.io">Website</a>
+  <a href="https://civicflow.vercel.app/">Website</a>
 </h4>
 
 ⚙️ Built using NextJS, Scaffold-Eth-2, Anon Aadhaar, The Graph Protocol, Hardhat, Wagmi, Viem, and Typescript.
