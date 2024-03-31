@@ -71,6 +71,31 @@ function Approved() {
 
   return (
     <>
+    <div className="section">
+        <h1>Query Approval by ID</h1>
+        <div className="centered">
+          <input
+            type="text"
+            placeholder="Enter Approval ID"
+            value={inputId}
+            onChange={handleInputChange}
+          />
+          <button onClick={handleQueryById} >Query</button>
+        </div>
+        {approvalDetails && (
+          <div className="centered1">
+          <h2>Approval Details</h2>
+          <p>ID: {approvalDetails.id}</p>
+          <p>Owner: {approvalDetails.owner}</p>
+          <p>Spender: {approvalDetails.spender}</p>
+          <p>Value: {approvalDetails.value}</p>
+          <p>Block Timestamp: {approvalDetails.blockTimestamp}</p>
+          <p>Block Number: {approvalDetails.blockNumber}</p>
+          <p>Transaction Hash: {approvalDetails.transactionHash}</p>
+        </div>
+        
+        )}
+      </div>
     <div className="container">
       <div className="section">
         <h1>Approvals Information</h1>
@@ -102,30 +127,7 @@ function Approved() {
         </table>
       </div>
     </div>
-    <div className="section">
-        <h1>Query Approval by ID</h1>
-        <div>
-          <input
-            type="text"
-            placeholder="Enter Approval ID"
-            value={inputId}
-            onChange={handleInputChange}
-          />
-          <button onClick={handleQueryById}>Query</button>
-        </div>
-        {approvalDetails && (
-          <div className="approval-details">
-            <h2>Approval Details</h2>
-            <p>ID: {approvalDetails.id}</p>
-            <p>Owner: {approvalDetails.owner}</p>
-            <p>Spender: {approvalDetails.spender}</p>
-            <p>Value: {approvalDetails.value}</p>
-            <p>Block Timestamp: {approvalDetails.blockTimestamp}</p>
-            <p>Block Number: {approvalDetails.blockNumber}</p>
-            <p>Transaction Hash: {approvalDetails.transactionHash}</p>
-          </div>
-        )}
-      </div>
+    
     </>
   );
 }
