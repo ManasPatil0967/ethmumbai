@@ -94,7 +94,7 @@ function Transfers() {
           </div>
         )}
       </div>
-      <div className="container">
+      <div className="container1">
         <div className="section">
           <h1>Transfers Information</h1>
           <table className="table">
