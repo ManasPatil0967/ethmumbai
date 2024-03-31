@@ -1,0 +1,56 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum
+    name: Final
+    network: sepolia
+    source:
+      address: "0x165A750aa53cb0a15D431E7019EB54227a6e1D46"
+      abi: Final
+      startBlock: 5593072
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Approval
+        - DepartmentRegistered
+        - EIP712DomainChanged
+        - MerchantRegistered
+        - RoleAdminChanged
+        - RoleGranted
+        - RoleRevoked
+        - TokensIssued
+        - Transfer
+        - UserAuthenticated
+        - UserRegistered
+      abis:
+        - name: Final
+          file: Final\abis\Final.json
+      eventHandlers:
+        - event: Approval(indexed address,indexed address,uint256)
+          handler: handleApproval
+        - event: DepartmentRegistered(indexed address,string)
+          handler: handleDepartmentRegistered
+        - event: EIP712DomainChanged()
+          handler: handleEIP712DomainChanged
+        - event: MerchantRegistered(indexed address,string,string)
+          handler: handleMerchantRegistered
+        - event: RoleAdminChanged(indexed bytes32,indexed bytes32,indexed bytes32)
+          handler: handleRoleAdminChanged
+        - event: RoleGranted(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleGranted
+        - event: RoleRevoked(indexed bytes32,indexed address,indexed address)
+          handler: handleRoleRevoked
+        - event: TokensIssued(indexed address,uint256)
+          handler: handleTokensIssued
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleTransfer
+        - event: UserAuthenticated(indexed address)
+          handler: handleUserAuthenticated
+        - event: UserRegistered(indexed address,string,string)
+          handler: handleUserRegistered
+      file: Final\Final.wasm
