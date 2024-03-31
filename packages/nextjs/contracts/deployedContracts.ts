@@ -5,9 +5,9 @@
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
 const deployedContracts = {
-  31337: {
+  11155111: {
     CivicFLow: {
-      address: "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512",
+      address: "0x7d290e712923542008D16EbBef82DD7CB512cE04",
       abi: [
         {
           inputs: [
@@ -1172,7 +1172,7 @@ const deployedContracts = {
       inheritedFunctions: {},
     },
     MyToken: {
-      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+      address: "0x54D5970d56F0646F3b69A952f28b55c69D60986E",
       abi: [
         {
           inputs: [
