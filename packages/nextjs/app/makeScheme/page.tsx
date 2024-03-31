@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import img from "../../public/cf1.png";
 import { ethers } from "ethers";
 import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 
@@ -10,7 +11,8 @@ const MakeScheme = () => {
   const [schemeId, setSchemeId] = useState("");
   const [schemeAmount, setSchemeAmount] = useState(0);
   const [schemeDuration, setSchemeDuration] = useState("0");
-
+  const [selectedOption, setSelectedOption] = useState("");
+  const combinedValue = schemeName + selectedOption;
   const { writeAsync, isLoading, isMining } = useScaffoldContractWrite({
     contractName: "CivicFLow",
     functionName: "makeScheme",
@@ -54,13 +56,34 @@ const MakeScheme = () => {
             <label htmlFor="scheme-id" className="text-gray-700 dark:text-white font-semibold">
               Scheme ID
             </label>
-            <input
-              id="scheme-id"
-              placeholder="SchemeID123"
-              onChange={e => setSchemeId(e.target.value)}
-              required
-              className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+            <div className="flex">
+              {/* <input
+                id="scheme-id"
+                placeholder="SchemeID123"
+                value={schemeId}
+                onChange={e => setSchemeId(e.target.value)}
+                required
+                className="w-full px-4 py-2 rounded-l-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              /> */}
+              <select
+                value={selectedOption}
+                onChange={e => setSelectedOption(e.target.value)}
+                required
+                className="px-4 py-2 rounded-r-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                <option value="">Select Scheme ID</option>
+                <option value="@edu">edu</option>
+                <option value="@agr">agr</option>
+                <option value="@ifr">ifr</option>
+                <option value="@rtl">rtl</option>
+                <option value="@hthc">hthc</option>
+                <option value="@hsng">hsng</option>
+                <option value="@enrg">enrg</option>
+                <option value="@trp">trp</option>
+                <option value="@ngo">ngo</option>
+              </select>
+            </div>
+            <p>Combined Value: {combinedValue}</p>
           </div>
           <div className="space-y-2">
             <label htmlFor="scheme-amount" className="text-gray-700 dark:text-white font-semibold">
@@ -101,7 +124,7 @@ const MakeScheme = () => {
           alt="Scheme Creation"
           className="rounded-lg object-cover"
           height="300"
-          src="/scheme.png"
+          src={img}
           style={{
             aspectRatio: "400/300",
             objectFit: "cover",

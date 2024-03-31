@@ -7,17 +7,23 @@ import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 
 const PayMerchant = () => {
   const [merchantAddress, setMerchantAddress] = useState("");
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState("0");
 
   const { writeAsync, isLoading, isMining } = useScaffoldContractWrite({
     contractName: "CivicFLow",
     functionName: "payMerchant",
-    args: [merchantAddress, ethers.parseUnits(amount, 18)],
+    args: [merchantAddress, BigInt(ethers.parseUnits(amount, 18))],
     value: ethers.parseUnits("0.1", 18), // Assuming a fee of 0.1 ETH for the transaction
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    // Check if amount is a valid number string
+    if (!amount || isNaN(Number(amount))) {
+      alert("Please enter a valid amount.");
+      return;
+    }
+
     writeAsync();
   };
 
@@ -51,7 +57,12 @@ const PayMerchant = () => {
             <input
               id="amount"
               placeholder="1"
-              onChange={e => setAmount(e.target.value)}
+              onChange={e => {
+                const value = e.target.value;
+                if (!isNaN(Number(value))) {
+                  setAmount(value);
+                }
+              }}
               required
               className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />

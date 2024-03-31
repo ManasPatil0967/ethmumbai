@@ -51,9 +51,9 @@ import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 export default function Component() {
-  const [companyName, setCompanyName] = useState("");
-  const [sectorialId, setSectorialId] = useState("");
-  const [proofOfIdentity, setProofOfIdentity] = useState("");
+  const [merchantName, setmerchantName] = useState("EthLLC");
+  const [sectorialId, setSectorialId] = useState("edu");
+  const [proofOfIdentity, setProofOfIdentity] = useState("abcde");
   const [anonAadhaar] = useAnonAadhaar();
   const [, latestProof] = useProver();
   //   const [generatedProof, setGeneratedProof] = useState<{} | null>(null);
@@ -80,7 +80,7 @@ export default function Component() {
   const { writeAsync, isLoading, isMining } = useScaffoldContractWrite({
     contractName: "CivicFLow",
     functionName: "registerMerchant",
-    args: [companyName, sectorialId, proofOfIdentity],
+    args: [merchantName, proofOfIdentity || "abcde", sectorialId],
   });
 
   return (
@@ -101,7 +101,7 @@ export default function Component() {
             <input
               id="company-name"
               placeholder="Acme Inc"
-              onChange={e => setCompanyName(e.target.value)}
+              onChange={e => setmerchantName(e.target.value)}
               required
               className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
