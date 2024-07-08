@@ -146,7 +146,7 @@ contract CivicFLow is ERC20, ERC20Burnable, AccessControl, ERC20Permit {
         for (uint256 i = 0; i < array.length; i++) {
             if (keccak256(abi.encodePacked(array[i])) == keccak256(abi.encodePacked(value))) {
                 return true;
-            }
+            }   
         }
         return false;
     }

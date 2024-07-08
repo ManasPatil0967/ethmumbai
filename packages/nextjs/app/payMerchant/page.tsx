@@ -5,7 +5,6 @@ import Image from "next/image";
 import { ethers } from "ethers";
 import { useScaffoldContractWrite } from "~~/hooks/scaffold-eth";
 import img from "../../public/cf1.png";
-
 const PayMerchant = () => {
   const [merchantAddress, setMerchantAddress] = useState("");
   const [amount, setAmount] = useState("0");
